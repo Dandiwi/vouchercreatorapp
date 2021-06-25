@@ -58,7 +58,7 @@ public class VoucherService {
             pDDocument.close();
             PrinterJob job = PrinterJob.getPrinterJob();
             job.setPageable(new PDFPageable(output));
-            job.printDialog();
+//            job.printDialog();
             job.print();
             output.close();
         } catch (IOException | PrinterException e) {
