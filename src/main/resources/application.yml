@@ -2,14 +2,14 @@
 spring:
     datasource:
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://d3y0lbg7abxmbuoi.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/b9xk78z11ria3dho?reconnect=true?useUnicode=yes&characterEncoding=UTF-8
-        username: bbidijo4yvg377nw
-        password: pyzlfpsw2kxw1e0b
+        url: jdbc:mysql://ulsq0qqx999wqz84.chr7pe7iynqr.eu-west-1.rds.amazonaws.com/tv4zbvx0cg2igobq?reconnect=true?useUnicode=yes&characterEncoding=UTF-8
+        username: xc2i3bfkr11mr4zr
+        password: qon9z0mw29gdqgbu
         sqlScriptEncoding: UTF-8
     flyway:
-        url: jdbc:mysql://d3y0lbg7abxmbuoi.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/b9xk78z11ria3dho
-        user: bbidijo4yvg377nw
-        password: pyzlfpsw2kxw1e0b
+        url: jdbc:mysql://ulsq0qqx999wqz84.chr7pe7iynqr.eu-west-1.rds.amazonaws.com/tv4zbvx0cg2igobq?reconnect=true?useUnicode=yes&characterEncoding=UTF-8
+        user: xc2i3bfkr11mr4zr
+        password: qon9z0mw29gdqgbu
     jpa:
         properties:
             hibernate:
@@ -22,5 +22,6 @@ logging:
     org.hibernate:
       SQL: DEBUG
       type: TRACE
-#    root: debug
 
+server:
+  port=${PORT:8080}
