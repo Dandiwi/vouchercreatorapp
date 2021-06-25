@@ -21,7 +21,7 @@
         <textarea id="insidePakiet" name="insidePakiet" form="form1" rows="20" cols="30" class="form-control mb-4 col-4" style="text-align:center">  </textarea>
         <input id="cena" type="text" th:value = "${cena}" placeholder="cena" class="form-control mb-4 col-4">
         <button type="submit" class="btn btn-info col-2"> Podglad Vouchera </button>
-        <button type="submit" class="btn btn-info col-2" onclick="window.print()"> Drukuj Voucher </button>
+        <button type="submit" class="btn btn-info col-2" onclick="window.print(@{pdf-java-output.pdf)"> Drukuj Voucher </button>
         <button type="submit" class="btn btn-info col-2"> Wyslij Voucher </button>
 
     </form>
