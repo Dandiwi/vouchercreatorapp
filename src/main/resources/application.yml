@@ -1,0 +1,26 @@
+#DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://d3y0lbg7abxmbuoi.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/b9xk78z11ria3dho?reconnect=true?useUnicode=yes&characterEncoding=UTF-8
+        username: bbidijo4yvg377nw
+        password: pyzlfpsw2kxw1e0b
+        sqlScriptEncoding: UTF-8
+    flyway:
+        url: jdbc:mysql://d3y0lbg7abxmbuoi.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/b9xk78z11ria3dho
+        user: bbidijo4yvg377nw
+        password: pyzlfpsw2kxw1e0b
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5Dialect
+        hibernate:
+            ddl-auto: update
+
+logging:
+  level:
+    org.hibernate:
+      SQL: DEBUG
+      type: TRACE
+#    root: debug
+

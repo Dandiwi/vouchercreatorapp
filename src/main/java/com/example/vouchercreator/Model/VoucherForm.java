@@ -13,12 +13,24 @@ public class VoucherForm {
     private Date date;
     private String email;
 
+
+
+    private String insidePakiet;
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getInsidePakiet() {
+        return insidePakiet;
+    }
+
+    public void setInsidePakiet(String insidePakiet) {
+        this.insidePakiet = insidePakiet;
     }
 
     public String getPakiet() {

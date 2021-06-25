@@ -9,22 +9,37 @@
 <div class="container">
     <h1> Voucher Form</h1>
     <hr>
-    <h2> Drukuj/Wyslij Voucher</h2>
-
-    <form action="#" th:action="@{/printVoucher}" th:object=${voucher} method="POST">
+    <form id="form1" action="#" th:action="@{/printVoucher}" th:object=${voucher} method="POST">
         <input type="text" th:field = "*{name}" placeholder="Name" class="form-control mb-4 col-4">
-        <select id="Pakiet" name="pakiet" class="form-control mb-4 col-4">
+        <select id="Pakiet" name="pakiet" class="form-control mb-4 col-4" onchange="return setPakiet()">
             <option value="">Wybierz pakiet</option>
             <option th:each="pakiet : ${pakiety}"
-                    th:value="${pakiet.nazwaPakietu}"></option></select>
-        <input type="date" th:field = "*{date}" placeholder="data" class="form-control mb-4 col-4">
+                    th:value="${pakiet.id}"
+                    th:text="${pakiet.name}"></option></select>
+        <input type="date" th:field = "*{date}" placeholder="data" th:required="required" class="form-control mb-4 col-4">
         <input type="text" th:field = "*{email}" placeholder="email" class="form-control mb-4 col-4">
-
+        <textarea id="insidePakiet" name="insidePakiet" form="form1" rows="20" cols="30" class="form-control mb-4 col-4" style="text-align:center">  </textarea>
+        <input id="cena" type="text" th:value = "${cena}" placeholder="cena" class="form-control mb-4 col-4">
         <button type="submit" class="btn btn-info col-2"> Podglad Vouchera </button>
         <button type="submit" class="btn btn-info col-2"> Drukuj Voucher </button>
         <button type="submit" class="btn btn-info col-2"> Wyslij Voucher </button>
 
     </form>
+
+    <script th:inline="javascript">
+    	function setPakiet(){
+      	var dropdown = document.getElementById("Pakiet");
+        var selection = dropdown.value - 1;
+      	console.log(selection);
+      	var pakiety = /*[[${pakiety}]]*/ "";
+      	console.log(pakiety[selection].name);
+        var pakiet = document.getElementById("insidePakiet");
+        pakiet.value = "szkolenie\n"+pakiety[selection].pakiet
+        var cena = document.getElementById("cena");
+        cena.value = pakiety[selection].cena;
+
+      }
+    </script>
 </div>
 </body>
 </html>
