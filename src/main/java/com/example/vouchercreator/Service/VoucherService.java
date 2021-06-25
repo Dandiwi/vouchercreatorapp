@@ -25,7 +25,7 @@ import java.util.List;
 public class VoucherService {
     public static void printVoucher(VoucherForm voucherForm) {
         try {
-            PDDocument pDDocument = PDDocument.load(new File("src/main/resources/test2.pdf"));
+            PDDocument pDDocument = PDDocument.load(new File("test2.pdf"));
 
             VoucherService app = new VoucherService();
             InputStream cinzel = app.getFileFromResourceAsStream("Cinzel-Regular.ttf");
