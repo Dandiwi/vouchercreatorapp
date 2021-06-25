@@ -1,33 +1,30 @@
 package com.example.vouchercreator.Service;
 
-import com.example.vouchercreator.VouchercreatorApplication;
-import org.apache.pdfbox.cos.COSDictionary;
 import org.apache.pdfbox.cos.COSName;
-import org.apache.pdfbox.cos.COSString;
 import org.apache.pdfbox.pdmodel.*;
 import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.apache.pdfbox.printing.PDFPageable;
 
 import com.example.vouchercreator.Model.VoucherForm;
-import org.springframework.core.io.ClassPathResource;
 
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 public class VoucherService {
     public static void printVoucher(VoucherForm voucherForm) {
         try {
-            PDDocument pDDocument = PDDocument.load(new File("src/main/resources/test2.pdf"));
-
             VoucherService app = new VoucherService();
+
+            InputStream newPdf = app.getFileFromResourceAsStream("test2.pdf");
+
+            File file = app.copyInputStreamToFile(newPdf);
+
+            PDDocument pDDocument = PDDocument.load(file);
+
             InputStream cinzel = app.getFileFromResourceAsStream("Cinzel-Regular.ttf");
             PDFont cinzelFont = PDType0Font.load(pDDocument, cinzel, false);
 
@@ -95,5 +92,15 @@ public class VoucherService {
 
     }
 
+    public File copyInputStreamToFile(InputStream inputStream) throws IOException {
+
+        byte[] buffer = new byte[inputStream.available()];
+        inputStream.read(buffer);
+
+        File targetFile = new File("src/main/resources/targetFile.tmp");
+        OutputStream outStream = new FileOutputStream(targetFile);
+        outStream.write(buffer);
+        return targetFile;
+    }
 
 }
