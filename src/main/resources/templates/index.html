@@ -23,11 +23,8 @@
         <button type="submit" class="btn btn-info col-2"> Podglad Vouchera </button>
         <button type="submit" class="btn btn-info col-2" onclick="window.print(@{pdf-java-output.pdf)"> Drukuj Voucher </button>
         <button type="submit" class="btn btn-info col-2"> Wyslij Voucher </button>
-        <div>
-            <object data="pdf-java-output.pdf" type="application/pdf" width="300" height="200">
-                alt : <a href="pdf-java-output.pdf">test.pdf</a>
-            </object>
-        </div>
+        <a th:href="@{/pdf-java-output.pdf}" />
+
 
     </form>
 
